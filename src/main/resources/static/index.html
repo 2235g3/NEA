@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>The Restaurant</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <script>
+      function changeURL() {
+        var name = document.getElementById("name").value;
+        var age = document.getElementById("age").value;
+        location.replace("/HTMLTest?details=" + name + "," + age);
+      }
+    </script>
+    <header>
+      <h1><u><b>The Restaurant</b></u></h1>
+      <img src="/images/logo.png">
+      <hr>
+    </header>
+
+    <div>
+      <div>
+        <h2>New customer?</h2>
+        <h2>Create an account to get</h2>
+        <h2>booking!</h2>
+        <button type="button", onclick="location.replace('/signUp')">Sign Up</button>
+      </div>
+      <div>
+        <h2>Already a customer?</h2>
+        <h2>Log in to get access to all</h2>
+        <h2>things food!</h2>
+        <button>Log In!</button>
+      </div>
+      <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.8349017236985!2d-0.1415709065546433!3d51.50120674710032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760520cd5b5eb5%3A0xa26abf514d902a7!2sBuckingham%20Palace!5e0!3m2!1sen!2suk!4v1663443494604!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h3>Where we are:</h3>
+        <p>123 Big Street, London</p>
+        <p>EC1 4TF</p>
+        <p>07123456789</p>
+        <p>Parking is available on-site</p>
+      </div>
+      <div>
+      <p>Opening times:</p>
+        <table>
+          <tr>
+            <th>Day</th>
+            <th>Time</th>
+          </tr>
+          <tr>
+            <td>Monday - Wednesday</td>
+            <td>10:00 - 23:00</td>
+          </tr>
+          <tr>
+            <td>Thursday - Saturday</td>
+            <td>09:00 - 23:30</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>11:00 - 22:00</td>
+          </tr>
+        </table>
+        <p>Note: The kitchen closes an hour before the restaurant closes, so you must order your mains before that time</p>
+      </div>
+      <div>
+        <h2>Menus:</h2>
+        <button onclick="location.replace('/breakfastMenu')">Breakfast Menu</button>
+        <button onclick="location.replace('/kidsMenu')">Kids Menu</button>
+        <button onclick="location.replace('/mainMenu')">Main Menu</button>
+        <button onclick="location.replace('/sundayMenu')">Sunday Menu</button>
+      </div>
+    </div>
+    <footer>
+      <a>Contact Info</a>
+      <a>Terms</a>
+      <a>Help</a>
+      <p>Restaurants Ⓒ</p>
+    </footer>
+  </body>
+</html>
