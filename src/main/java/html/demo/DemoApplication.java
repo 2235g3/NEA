@@ -35,4 +35,7 @@ public class DemoApplication {
 	@GetMapping("/signUp")
 	public void signUp(){
 	}
+	@GetMapping("/logIn")
+	public void logIn(){
+	}
 }

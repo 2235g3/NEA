@@ -4,6 +4,8 @@
         <title>The Restaurant</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="/css/signUp.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+        <link rel="script" href="/javascript/signUp.js">
     </head>
     <body>
         <header>
@@ -12,25 +14,32 @@
             <hr>
         </header>
         <div>
-            <h2><u>Sign Up</u></h2>
-            <h4>First Name:</h4>
-            <input type="text">
-            <h4>Last Name:</h4>
-            <input type="text">
-            <h4>Email Address:</h4>
-            <input type="email">
-            <h4>Password:</h4>
-            <input type="password">
-            <h4>Re-enter Password:</h4>
-            <input type="password">
-            <h4>Promotional Emails:</h4>
-            <select name="promoEmails", id="promoEmails">
-                <option>Never</option>
-                <option>Weekly</option>
-                <option>Monthly</option>
-                <option>Annually</option>
-            </select>
-            <button type="button">Submit</button>
+            <button type="button" onclick="location.replace('/')">Back</button>
+        </div>
+        <div>
+            <form type="submit">
+                <h2><u>Sign Up</u></h2>
+                <h4>First Name:</h4>
+                <input type="text">
+                <h4>Last Name:</h4>
+                <input type="text">
+                <h4>Email Address:</h4>
+                <input type="email">
+                <h4>Password:</h4>
+                <input type="password" id="password">
+                <i class="bi bi-eye-slash-fill" id="passToggle"></i>
+                <h4>Re-enter Password:</h4>
+                <input type="password" id="reenterPass">
+                <i class="bi bi-eye-slash-fill" id="reenterPassToggle"></i>
+                <h4>Promotional Emails:</h4>
+                <select name="promoEmails" id="promoEmails">
+                    <option>Never</option>
+                    <option>Weekly</option>
+                    <option>Monthly</option>
+                    <option>Annually</option>
+                </select>
+                <button type="button">Sign Up</button>
+            </form>
         </div>
         <footer>
             <a>Contact Info</a>
@@ -38,5 +47,6 @@
             <a>Help</a>
             <p>Restaurants Ⓒ</p>
         </footer>
+        <script src="/javascript/signUp.js"></script>
     </body>
 </html>
