@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>The Restaurant</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+  <link rel="stylesheet" href="/css/custBookings.css"/>
+  <link rel="script" href="/javascript/custBookings.js"/>
+</head>
+<body>
+  <header>
+    <h1><u><b>The Restaurant</b></u></h1>
+    <img src="/images/logo.png">
+    <hr>
+  </header>
+  <div>
+    <nav>
+      <button onclick="location.replace('/custAccount?accountDetails=')">Account</button>
+      <button>Bookings</button>
+      <button onclick="location.replace('/custOrders')">Orders</button>
+      <button>Info + Menus</button>
+      <button onclick="location.replace('/')">Sign Out</button>
+    </nav>
+  </div>
+  <div>
+    <input type="search" placeholder="Search"/>
+    <i class="bi bi-search"></i>
+    <h1><u>Bookings</u></h1>
+    <select>
+      <option>No Filter</option>
+      <option>Name</option>
+      <option>Date</option>
+      <option>Time</option>
+      <option>Amount of People</option>
+      <option>Booking ID</option>
+    </select>
+  </div>
+  <div>
+    <nav>
+      <button id="view">View</button>
+      <button id="edit">Edit</button>
+      <button id="booking">Book</button>
+    </nav>
+    <object data="/html/custMakeBookings.html" width="1400" height="300" id="bookingWindow"></object>
+  </div>
+  <footer>
+    <a>Contact Info</a>
+    <a>Terms</a>
+    <a>Help</a>
+    <p>Restaurants Ⓒ</p>
+  </footer>
+  <script src="/javascript/custBookings.js"></script>
+</body>
+</html>

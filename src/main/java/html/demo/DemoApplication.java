@@ -38,4 +38,15 @@ public class DemoApplication {
 	@GetMapping("/logIn")
 	public void logIn(){
 	}
+	@GetMapping("/custAccount")
+	public String custAccount(@RequestParam(value="accountDetails", name="accountDetails") String[] accountDetails, Model model) {
+		model.addAttribute("accountDetails", accountDetails);
+		return "custAccount";
+	}
+	@GetMapping("/custBookings")
+	public void custBookings() {
+	}
+	@GetMapping("/custOrders")
+	public void custOrders() {
+	}
 }
