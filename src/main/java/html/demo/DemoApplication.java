@@ -49,4 +49,7 @@ public class DemoApplication {
 	@GetMapping("/custOrders")
 	public void custOrders() {
 	}
+	@GetMapping("/custInfoMenu")
+	public void custInfoMenu() {
+	}
 }
