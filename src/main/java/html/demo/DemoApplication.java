@@ -39,7 +39,16 @@ public class DemoApplication {
 	public void logIn(){
 	}
 	@GetMapping("/custAccount")
-	public String custAccount(@RequestParam(value="accountDetails", name="accountDetails") String[] accountDetails, Model model) {
+	public String custAccount(@RequestParam(value="accountEmail", name="accountEmail") String accountEmail, Model model) {
+		String[][] userDetails = new databaseMethods().getData("SELECT userID, FName, LName, email, password FROM users WHERE email = '" + accountEmail + "'");
+		String[][] custDetails = new databaseMethods().getData("SELECT ");
+		String[][] accountDetails = {};
+		for (String[] strArray:accountDetails) {
+			for (String str:strArray) {
+				System.out.println(str);
+			}
+		}
+
 		model.addAttribute("accountDetails", accountDetails);
 		return "custAccount";
 	}
