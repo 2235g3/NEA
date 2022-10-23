@@ -12,14 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+		cryptMethods.loadKeyStore();
+		/*try {
+			cryptMethods aes = new cryptMethods();
+			aes.initKeys();
+			String encryptedText = aes.encrypt("Text");
+			String decryptedText = aes.decrypt(encryptedText);
+			System.out.println(encryptedText);
+			System.out.println(decryptedText);
+		} catch (Exception e) {
+			System.out.println("Error occurred");
+			System.out.println(e);
+		}*/
 	}
-
-	@GetMapping("/HTMLTest") // USE LISTS
-	public String HTMLTest(@RequestParam(value = "details", name = "details", required = false) String[] details, Model model) {
-		model.addAttribute("details", details);
-		return "HTMLTest";
-	}
-
 	@GetMapping("/breakfastMenu")
 	public void breakfastMenu() {
 	}
@@ -40,16 +45,11 @@ public class DemoApplication {
 	}
 	@GetMapping("/custAccount")
 	public String custAccount(@RequestParam(value="accountEmail", name="accountEmail") String accountEmail, Model model) {
-		String[][] userDetails = new databaseMethods().getData("SELECT userID, FName, LName, email, password FROM users WHERE email = '" + accountEmail + "'");
-		String[][] custDetails = new databaseMethods().getData("SELECT ");
-		String[][] accountDetails = {};
-		for (String[] strArray:accountDetails) {
-			for (String str:strArray) {
-				System.out.println(str);
-			}
-		}
-
+		String[][] userDetails = new databaseMethods().getData("SELECT userID, FName, LName, email FROM users WHERE email = '" + accountEmail +"'");
+		String[][] custDetails = new databaseMethods().getData("SELECT custID, totalAmountSpent, promoEmails, memberPoints FROM customers WHERE userID = '" + userDetails[0][0] + "'");
+		String[][] accountDetails = {{userDetails[0][1], userDetails[0][2], custDetails[0][0], userDetails[0][3], custDetails[0][1], custDetails[0][2], custDetails[0][3]}};
 		model.addAttribute("accountDetails", accountDetails);
+
 		return "custAccount";
 	}
 	@GetMapping("/custBookings")

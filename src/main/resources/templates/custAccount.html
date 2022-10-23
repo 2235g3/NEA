@@ -21,14 +21,13 @@
     </div>
     <div>
         <h1><u>Account</u></h1>
-        <h3>First Name:</h3>
-        <h3>Last Name:</h3>
-        <h3>Customer ID:</h3>
-        <h3>Email Address:</h3>
-        <h3>Password:</h3>
-        <h3>Total Amount Spent:</h3>
-        <h3>Promotional Emails:</h3>
-        <h3>Member Points:</h3>
+        <h3 th:text="'First Name: ' + ${accountDetails[0][0]}"/>
+        <h3 th:text="'Last Name: ' + ${accountDetails[0][1]}"/>
+        <h3 th:text="'Customer ID: ' + ${accountDetails[0][2]}"/>
+        <h3 th:text="'Email Address: ' + ${accountDetails[0][3]}"/>
+        <h3 th:text="'Total Amount Spent: £' + ${accountDetails[0][4]}"/>
+        <h3 th:text="'Promotional Emails: ' + ${accountDetails[0][5]}"/>
+        <h3 th:text="'Member Points: ' + ${accountDetails[0][6]}"/>
     </div>
     <div>
         <h4>Want to change your email address?</h4>
