@@ -21,11 +21,12 @@
         <form>
             <h2>Log In</h2>
             <h4>Email Address:</h4>
-            <input type="email">
+            <input type="email" id="email">
             <h4>Password:</h4>
             <input type="password" id="pass">
             <i class="bi bi-eye-slash-fill" id="passToggle"></i>
-            <button type="button" onclick="location.replace('/custAccount?accountEmail=')">Log In</button>
+            <button type="button" id="submit">Log In</button>
+            <p style="color:red" id="errorOne"></p>
         </form>
     </div>
     <footer>

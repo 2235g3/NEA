@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>The Restaurant</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -20,11 +20,11 @@
             <form type="submit">
                 <h2><u>Sign Up</u></h2>
                 <h4>First Name:</h4>
-                <input type="text">
+                <input type="text" id="FName">
                 <h4>Last Name:</h4>
-                <input type="text">
+                <input type="text" id="LName">
                 <h4>Email Address:</h4>
-                <input type="email">
+                <input type="email" id="email">
                 <h4>Password:</h4>
                 <input type="password" id="password">
                 <i class="bi bi-eye-slash-fill" id="passToggle"></i>
@@ -38,7 +38,10 @@
                     <option>Monthly</option>
                     <option>Annually</option>
                 </select>
-                <button type="button">Sign Up</button>
+                <button type="button" id="signUp">Sign Up</button>
+                <p style="color:red" id="errorOne"></p>
+                <p style="color:red" id="errorTwo"></p>
+                <p style="color:red" id="errorThree"></p>
             </form>
         </div>
         <footer>
@@ -47,6 +50,12 @@
             <a>Help</a>
             <p>Restaurants Ⓒ</p>
         </footer>
+        <script th:inline="javascript">
+            var emailError = "[(${returns[0]})]";
+            var passwordError = "[(${returns[1]})]";
+            var existsError = "[(${returns[2]})]";
+            var failed = "[(${returns[3]})]";
+        </script>
         <script src="/javascript/signUp.js"></script>
     </body>
 </html>
