@@ -79,17 +79,11 @@ public class userService {
                 accountInfo[i][j] = crypt.decrypt(accountInfo[i][j], logInObj.getEmail(), Base64.getDecoder().decode(accountInfo[0][7]));
             }
         }
-        for (int i = 0; i < accountInfo.length; i++) {
-            for (int j = 0; j < accountInfo[i].length; j++) {
-                System.out.println(accountInfo[0][j]);
-            }
-        }
         if ((!accountInfo[0][6].equals(logInObj.getEmail())) || (!accountInfo[0][4].equals(logInObj.getPassword()))) {
             returns[0] = "Incorrect";
             returns[1] = "True";
             return returns;
         }
-
         return null;
     }
 }

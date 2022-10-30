@@ -97,12 +97,13 @@ public class cryptMethods {
 
     public static KeyStore keyStore;
     public static char[] passwordArray = "restaurantNEA".toCharArray(); // Default keystore password
+    private static String keyStoreLoc = System.getProperty("user.dir")  + "\\src\\main\\resources\\static\\data\\restaurant.jks";
 
     public static void initKeyStore() {
         try {
             KeyStore newKeyStore = KeyStore.getInstance(KeyStore.getDefaultType()); // Creates a default keystore with a version of jks
             newKeyStore.load(null, passwordArray); // Loads a brand new keystore with the password created above
-            try (FileOutputStream fileOutputStream = new FileOutputStream("restaurantNEA.jks")) {
+            try (FileOutputStream fileOutputStream = new FileOutputStream(keyStoreLoc)) {
                 newKeyStore.store(fileOutputStream, passwordArray); // Stores the new keystore in the position stated above
             }
             loadKeyStore(); // The keystore created is loaded
@@ -113,7 +114,7 @@ public class cryptMethods {
     public static void loadKeyStore() {
         try {
             keyStore = KeyStore.getInstance(KeyStore.getDefaultType()); // Inits the keystore with the default type (jks)
-            try (FileInputStream fis = new FileInputStream("restaurantNEA.jks")) {
+            try (FileInputStream fis = new FileInputStream(keyStoreLoc)) {
                 keyStore.load(fis, passwordArray); // Loads the keystore using the password and from the position, both set above
             } catch (Exception e) {
                 errorMethods.defaultErrors(e);
@@ -129,7 +130,7 @@ public class cryptMethods {
             KeyStore.SecretKeyEntry secretKeyEntry = new KeyStore.SecretKeyEntry(sKey); // Creates a new secret key entry in the keystore
             KeyStore.ProtectionParameter passwordEntry = new KeyStore.PasswordProtection(passwordArray); // Adds the default password to the entry
             keyStore.setEntry(hashedEmail, secretKeyEntry, passwordEntry); // This sets up the entry in the keystore
-            keyStore.store(new java.io.FileOutputStream("restaurantNEA.jks"), passwordArray); // This stores the value in the keystore, otherwise the entry will only be temporarily stored
+            keyStore.store(new java.io.FileOutputStream(keyStoreLoc), passwordArray); // This stores the value in the keystore, otherwise the entry will only be temporarily stored
         } catch (Exception e) {
             errorMethods.defaultErrors(e);
         }
@@ -150,7 +151,7 @@ public class cryptMethods {
         try {
             loadKeyStore(); // Loads the keystore
             keyStore.deleteEntry(alias); // Uses the keystore to delete the entry
-            keyStore.store(new java.io.FileOutputStream("restaurantNEA.jks"), passwordArray); // Stores the keystore with the updated entries
+            keyStore.store(new java.io.FileOutputStream(keyStoreLoc), passwordArray); // Stores the keystore with the updated entries
         } catch (Exception e) {
             errorMethods.defaultErrors(e);
         }
