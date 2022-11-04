@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 public class userController {
 
@@ -32,7 +34,7 @@ public class userController {
         }
     }
     @GetMapping("/logIn")
-    public void logIn(@RequestParam(value="logInDetails", name="logInDetails") String[] logInDetails, Model model){
+    public String logIn(@RequestParam(value="logInDetails", name="logInDetails") String[] logInDetails, Model model, final HttpServletResponse response){
         if (logInDetails.length > 0) {
             tempCustomer logInObj = new tempCustomer("", "", logInDetails[0], logInDetails[1], "");
             model.addAttribute("returns", userService.logIn(logInObj));
@@ -40,6 +42,7 @@ public class userController {
         else {
             model.addAttribute("returns", new String[]{"",""});
         }
+        return "logIn";
     }
     @GetMapping("/custAccount")
     public String custAccount(@RequestParam(value="accountEmail", name="accountEmail") String accountEmail, Model model) {

@@ -48,6 +48,6 @@ public class customer extends user {
     }
 
     public String[] getList() {
-        return new String[] {Integer.toString(customerID), promoEmails, Integer.toString(memberPoints), Float.toString(amountSpent)};
+        return new String[] {Integer.toString(this.getUserID()),this.getFName(),this.getLName(), this.getEmail(), this.getPassword(), Integer.toString(this.getAccountType()), this.getHashedEmail(),Integer.toString(customerID), promoEmails, Integer.toString(memberPoints), Float.toString(amountSpent)};
     }
 }

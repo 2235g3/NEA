@@ -97,7 +97,7 @@ public class cryptMethods {
 
     public static KeyStore keyStore;
     public static char[] passwordArray = "restaurantNEA".toCharArray(); // Default keystore password
-    private static String keyStoreLoc = System.getProperty("user.dir")  + "\\src\\main\\resources\\static\\data\\restaurant.jks";
+    private static String keyStoreLoc = System.getProperty("user.dir")  + "\\src\\main\\resources\\static\\data\\restaurantNEA.jks";
 
     public static void initKeyStore() {
         try {
