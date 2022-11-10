@@ -40,16 +40,15 @@ public class userController {
             model.addAttribute("returns", userService.logIn(logInObj));
         }
         else {
-            model.addAttribute("returns", new String[]{"",""});
+            model.addAttribute("returns", new String[]{"","False",""});
         }
         return "logIn";
     }
     @GetMapping("/custAccount")
-    public String custAccount(@RequestParam(value="accountEmail", name="accountEmail") String accountEmail, Model model) {
-        String[][] userDetails = new databaseMethods().getData("SELECT userID, FName, LName, email FROM users WHERE email = '" + accountEmail +"'");
-        String[][] custDetails = new databaseMethods().getData("SELECT custID, totalAmountSpent, promoEmails, memberPoints FROM customers WHERE userID = '" + userDetails[0][0] + "'");
-        String[][] accountDetails = {{userDetails[0][1], userDetails[0][2], custDetails[0][0], userDetails[0][3], custDetails[0][1], custDetails[0][2], custDetails[0][3]}};
-        model.addAttribute("accountDetails", accountDetails);
+    public String custAccount(Model model) {
+        customer customer = userService.custObj;
+        System.out.println(customer.getList());
+        model.addAttribute("accountDetails", customer);
         return "custAccount";
     }
     @GetMapping("/custBookings")

@@ -21,13 +21,13 @@
     </div>
     <div>
         <h1><u>Account</u></h1>
-        <h3 th:text="'First Name: ' + ${accountDetails[0][0]}"/>
-        <h3 th:text="'Last Name: ' + ${accountDetails[0][1]}"/>
-        <h3 th:text="'Customer ID: ' + ${accountDetails[0][2]}"/>
-        <h3 th:text="'Email Address: ' + ${accountDetails[0][3]}"/>
-        <h3 th:text="'Total Amount Spent: £' + ${accountDetails[0][4]}"/>
-        <h3 th:text="'Promotional Emails: ' + ${accountDetails[0][5]}"/>
-        <h3 th:text="'Member Points: ' + ${accountDetails[0][6]}"/>
+        <h3 th:text="'First Name: ' + ${accountDetails.getFName()}"/>
+        <h3 th:text="'Last Name: ' + ${accountDetails.getLName()}"/>
+        <h3 th:text="'Customer ID: ' + ${accountDetails.getUserID()}"/>
+        <h3 th:text="'Email Address: ' + ${accountDetails.getEmail()}"/>
+        <h3 th:text="'Total Amount Spent: £' + ${accountDetails.getAmountSpent()}"/>
+        <h3 th:text="'Promotional Emails: ' + ${accountDetails.getPromoEmails()}"/>
+        <h3 th:text="'Member Points: ' + ${accountDetails.getMemberPoints()}"/>
     </div>
     <div>
         <h4>Want to change your email address?</h4>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>The Restaurant</title>
@@ -35,6 +35,11 @@
         <a>Help</a>
         <p>Restaurants Ⓒ</p>
     </footer>
+    <script th:inline="javascript">
+            var error = "[(${returns[0]})]";
+            var loggedIn = "[(${returns[1]})]";
+            var accountType = "[(${returns[2]})]";
+    </script>
     <script src="/javascript/logIn.js"></script>
 </body>
 </html>

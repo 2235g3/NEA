@@ -60,7 +60,7 @@ public class userService {
         return returns;
     }
     public String[] logIn(tempCustomer logInObj) {
-        String[] returns = new String[2];
+        String[] returns = new String[3];
         cryptMethods crypt = new cryptMethods();
         databaseMethods dbm = new databaseMethods();
         logInObj.setEmail(crypt.hashing(logInObj.getEmail()));
@@ -78,22 +78,19 @@ public class userService {
                 accountInfo[i][j] = crypt.decrypt(accountInfo[i][j], logInObj.getEmail(), Base64.getDecoder().decode(accountInfo[0][7]));
             }
         }
-        /*for (int i = 0; i < accountInfo.length; i++) {
-            for (int j = 0; j < accountInfo[i].length; j++) {
-                System.out.println(accountInfo[i][j]);
-            }
-        }*/
         if ((!accountInfo[0][6].equals(logInObj.getEmail())) || (!accountInfo[0][4].equals(logInObj.getPassword()))) {
             returns[0] = "Incorrect";
-            returns[1] = "True";
+            returns[1] = "False";
+            returns[2] = "";
             return returns;
         }
         if (accountType[0][0].equals("1")) {
-            customer customer = new customer(Integer.parseInt(accountInfo[0][0]),accountInfo[0][1],accountInfo[0][2],accountInfo[0][3],accountInfo[0][4],Integer.parseInt(accountInfo[0][5]),accountInfo[0][6],Integer.parseInt(accountInfo[0][8]),accountInfo[0][9],Integer.parseInt(accountInfo[0][10]),Float.parseFloat(accountInfo[0][11]));
-            for (String str:customer.getList()) {
-                System.out.println(str);
-            }
+            custObj = new customer(Integer.parseInt(accountInfo[0][0]),accountInfo[0][1],accountInfo[0][2],accountInfo[0][3],accountInfo[0][4],Integer.parseInt(accountInfo[0][5]),accountInfo[0][6],Integer.parseInt(accountInfo[0][8]),accountInfo[0][9],Integer.parseInt(accountInfo[0][10]),Float.parseFloat(accountInfo[0][11]));
+            return new String[] {"","True","1"};
         }
-        return null;
+        else {
+            adminObj = new user(Integer.parseInt(accountInfo[0][0]),accountInfo[0][1],accountInfo[0][2],accountInfo[0][3],accountInfo[0][4],Integer.parseInt(accountInfo[0][5]),accountInfo[0][6]);
+            return new String[] {"","True","2"};
+        }
     }
 }

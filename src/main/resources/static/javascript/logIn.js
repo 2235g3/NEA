@@ -20,3 +20,10 @@ submit.addEventListener('click',function(e) {
     }
 });
 
+if (error == "Incorrect") {
+    errorOne.innerHTML = "Email or password is wrong";
+}
+if (loggedIn != "False" && accountType == "1") {
+    location.replace("/custAccount");
+}
+
